@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Course Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .navbar {
+      background-color: #007BFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      color: white;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .container {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #007BFF;
+    }
+
+    .subtopics {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .subtopics button {
+      background-color: #e0e0e0;
+      padding: 7px 12px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .summary {
+      margin-top: 10px;
+      font-size: 14px;
+      background-color: #f0f8ff;
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">MyCourses</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Card 1 -->
+    <div class="card">
+      <h3>Web Development</h3>
+      <div class="subtopics">
+        <button onclick="showSummary(this)">HTML</button>
+        <button onclick="showSummary(this)">CSS</button>
+        <button onclick="showSummary(this)">JavaScript</button>
+      </div>
+      <div class="summary"></div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <h3>Networking</h3>
+      <div class="subtopics">
+        <button onclick="showSummary(this)">Intro to Networking</button>
+        <button onclick="showSummary(this)">IP Addressing</button>
+        <button onclick="showSummary(this)">OSI Model</button>
+      </div>
+      <div class="summary"></div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <h3>Database</h3>
+      <div class="subtopics">
+        <button onclick="showSummary(this)">Intro to DB</button>
+        <button onclick="showSummary(this)">SQL</button>
+        <button onclick="showSummary(this)">Normalization</button>
+      </div>
+      <div class="summary"></div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+      <h3>Cyber Security</h3>
+      <div class="subtopics">
+        <button onclick="showSummary(this)">Introduction</button>
+        <button onclick="showSummary(this)">Types of Threats</button>
+        <button onclick="showSummary(this)">Prevention Techniques</button>
+      </div>
+      <div class="summary"></div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card">
+      <h3>Programming Basics</h3>
+      <div class="subtopics">
+        <button onclick="showSummary(this)">Variables</button>
+        <button onclick="showSummary(this)">Control Structures</button>
+        <button onclick="showSummary(this)">Functions</button>
+      </div>
+      <div class="summary"></div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card">
+      <h3>System Analysis</h3>
+      <div class="subtopics">
+        <button onclick="showSummary(this)">DFD</button>
+        <button onclick="showSummary(this)">ERD</button>
+        <button onclick="showSummary(this)">System Design</button>
+      </div>
+      <div class="summary"></div>
+    </div>
+
+  </div>
+
+  <script>
+    const summaries = {
+      "HTML": "HTML (HyperText Markup Language) is the standard language for creating web pages. It structures the content using elements like headings, paragraphs, and images. HTML forms the backbone of all websites. It is essential for creating accessible, semantic layouts.",
+      "CSS": "CSS (Cascading Style Sheets) is used to style HTML elements. It controls colors, layouts, fonts, and responsiveness. CSS enhances user interface by making websites visually appealing. There are different ways to apply CSS: inline, internal, and external.",
+      "JavaScript": "JavaScript is a programming language used to make websites interactive. It can manipulate HTML and CSS, handle events, and communicate with servers. JavaScript runs in the browser and is key to modern web development. Frameworks like React and Vue are based on JavaScript.",
+      
+      "Intro to Networking": "Networking involves connecting computers and devices to share data and resources. It includes LANs, WANs, and the internet. Understanding basic networking is crucial for IT and cybersecurity. Common devices include routers, switches, and modems.",
+      "IP Addressing": "IP Addressing identifies devices on a network using unique numbers. IPv4 and IPv6 are the main types. Proper addressing ensures communication and routing. Subnetting helps organize and secure networks.",
+      "OSI Model": "The OSI Model describes seven layers of communication between systems. Layers include Physical, Data Link, Network, Transport, Session, Presentation, and Application. Each layer performs a specific function in data transmission. It helps standardize network protocols and troubleshooting.",
+
+      "Intro to DB": "A database is a system for storing and managing data. It allows easy retrieval and manipulation of information. Relational databases use tables to represent data. Examples include MySQL, PostgreSQL, and SQLite.",
+      "SQL": "SQL (Structured Query Language) is used to interact with databases. You can create, read, update, and delete data using SQL. Common commands include SELECT, INSERT, UPDATE, and DELETE. Learning SQL is essential for backend development.",
+      "Normalization": "Normalization organizes data to reduce redundancy. It involves dividing large tables into smaller ones and defining relationships. Normal forms guide the process (1NF, 2NF, etc). It improves efficiency and data integrity.",
+
+      "Introduction": "Cyber Security protects systems, networks, and data from cyber threats. It involves practices, technologies, and policies. Key areas include confidentiality, integrity, and availability. It is essential in the digital age.",
+      "Types of Threats": "Cyber threats include malware, phishing, ransomware, and DDoS attacks. They aim to steal data, damage systems, or disrupt services. Understanding threats helps build effective defense strategies. Threats evolve constantly, requiring ongoing vigilance.",
+      "Prevention Techniques": "Preventive techniques include firewalls, antivirus software, and secure passwords. Regular updates and backups are crucial. Employee training reduces human error risks. Organizations use layered security approaches for protection.",
+
+      "Variables": "Variables are used to store data in programming. They can hold different types like numbers, text, or lists. In most languages, you declare and assign values. Good variable naming improves code readability.",
+      "Control Structures": "Control structures direct the flow of code execution. They include if-else, loops, and switch cases. They help handle decisions and repetition. Mastering them is key to solving logical problems.",
+      "Functions": "Functions are reusable blocks of code. They take inputs (parameters) and return results. Functions help organize code and avoid repetition. They support modular and maintainable software design.",
+
+      "DFD": "Data Flow Diagrams (DFDs) show how data moves in a system. They include processes, data stores, and external entities. DFDs help analysts understand system functionality. Levels like Context and Level 1 show increasing detail.",
+      "ERD": "Entity-Relationship Diagrams (ERDs) represent data and its relationships. They use entities, attributes, and relationships. ERDs are useful in designing databases. They help ensure accurate data modeling.",
+      "System Design": "System design defines the architecture and components of a system. It includes data design, interface design, and process logic. Good design improves performance, scalability, and maintainability. Tools like flowcharts and UML are often used."
+    };
+
+    function showSummary(btn) {
+      const topic = btn.textContent;
+      const summaryDiv = btn.closest(".card").querySelector(".summary");
+      summaryDiv.textContent = summaries[topic] || "Summary not available.";
+      summaryDiv.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
